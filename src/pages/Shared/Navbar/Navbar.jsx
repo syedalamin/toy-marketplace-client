@@ -1,6 +1,22 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+    
+    const handleLogoOut =()=>{
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
+
+    const [hover, setHover] = useState(false);
+    const onHover = () =>{
+        setHover(!hover);
+    }
+
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/allToys'>All Toys</Link></li>
@@ -29,7 +45,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {hover && <h2>{user.displayName}</h2>}
+                    {
+                        user && <img onMouseEnter={onHover} onMouseLeave={onHover} className="max-5 rounded-full" style={{width: '35px', height: '35px'}} src={user.photoURL} alt="" />
+                    }
+                    {
+                        user ? <button onClick={handleLogoOut}  className="btn btn-sm bg-orange-400">Log Out</button> :
+                        <Link to='/login' className="btn btn-sm bg-orange-400"><button>Login</button></Link>
+                    }
                 </div>
             </div>
         </div>

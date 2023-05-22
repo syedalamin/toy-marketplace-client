@@ -1,0 +1,7 @@
+.error-bg {
+    background-image: url(../../assets/image/404-error-page-examples.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-blend-mode: multiply;
+}

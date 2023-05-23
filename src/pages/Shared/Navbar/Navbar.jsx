@@ -44,13 +44,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {hover && <h2 className="mr-3 text-green-600 font-bold">{user.displayName}</h2>}
+                    {hover && <h2 className="mr-3 text-teal-600 font-bold">{user.displayName}</h2>}
                     {
-                        user && <img onMouseEnter={onHover} onMouseLeave={onHover} className="max-5 rounded-full mr-4 border-2" style={{width: '35px', height: '35px'}} src={user.photoURL} alt="" />
+                        user && <img onMouseEnter={onHover} onMouseLeave={onHover} className="max-5 rounded-full mr-4 border-2 border-teal-600 p-1" style={{width: '35px', height: '35px'}} src={user.photoURL} alt="" />
                     }
                     {
-                        user ? <button onClick={handleLogoOut}  className="btn btn-sm bg-orange-400">Log Out</button> :
-                        <Link to='/login' className="btn btn-sm bg-orange-400"><button>Login</button></Link>
+                        user ? <button onClick={handleLogoOut}  className="btn btn-sm bg-teal-600 border-0">Log Out</button> :
+                        <Link to='/login' className="btn btn-sm bg-teal-600 border-0"><button>Login</button></Link>
                     }
                 </div>
             </nav>

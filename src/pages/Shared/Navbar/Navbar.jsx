@@ -1,19 +1,20 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import navimg from '../../../assets/image//favicon.png';
 
 const Navbar = () => {
 
-    const {user, logOut} = useContext(AuthContext);
-    
-    const handleLogoOut =()=>{
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogoOut = () => {
         logOut()
-        .then()
-        .catch(error => console.log(error))
+            .then()
+            .catch(error => console.log(error))
     }
 
     const [hover, setHover] = useState(false);
-    const onHover = () =>{
+    const onHover = () => {
         setHover(!hover);
     }
 
@@ -22,11 +23,11 @@ const Navbar = () => {
         <li><Link to='/allToys'>All Toys</Link></li>
         <li><Link to='/myToys'>My Toys</Link></li>
         <li><Link to='/addAToy'>Add A Toy</Link></li>
-        <li><Link to='/blog'>Blogs</Link></li> 
+        <li><Link to='/blog'>Blogs</Link></li>
     </>
     return (
         <div className="w-10/12 mx-auto">
-            <nav className="navbar bg-base-100">
+            <nav className="navbar py-6 bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +37,10 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <h2 className="btn btn-ghost normal-case text-2xl">Syed Alamin</h2>
+                    <div className="flex justify-center items-center">
+                        <img src={navimg} style={{ width: '50px', height: '50px' }} className="rounded-full" alt="" />
+                        <h2 className="text-2xl font-bold"><span className="text-teal-600">BD</span> Toys</h2>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -46,11 +50,11 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {hover && <h2 className="mr-3 text-teal-600 font-bold">{user.displayName}</h2>}
                     {
-                        user && <img onMouseEnter={onHover} onMouseLeave={onHover} className="max-5 rounded-full mr-4 border-2 border-teal-600 p-1" style={{width: '35px', height: '35px'}} src={user.photoURL} alt="" />
+                        user ? <button onClick={handleLogoOut} className="btn btn-sm bg-teal-600 border-0">Log Out</button> :
+                            <Link to='/login' className="btn btn-sm bg-teal-600 border-0"><button>Login</button></Link>
                     }
                     {
-                        user ? <button onClick={handleLogoOut}  className="btn btn-sm bg-teal-600 border-0">Log Out</button> :
-                        <Link to='/login' className="btn btn-sm bg-teal-600 border-0"><button>Login</button></Link>
+                        user && <img onMouseEnter={onHover} onMouseLeave={onHover} className="max-5 rounded-full ml-4 border-2 border-teal-600 p-1" style={{ width: '35px', height: '35px' }} src={user.photoURL} alt="" />
                     }
                 </div>
             </nav>

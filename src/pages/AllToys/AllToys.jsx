@@ -15,6 +15,15 @@ const AllToys = () => {
         <div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-10/12 mx-auto">
+                    {/* head */}
+                    <thead>
+                        <th>Name</th>
+                        <th>Seller Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>View Details</th>
+                    </thead>
                     <tbody>
                         {
                             toys.map(toy => <AllToysSingle

@@ -1,7 +1,7 @@
 import bg from '../../../assets/image/bg.png';
 const Banner = () => {
     return (
-        <div className='w-10/12 mx-auto my-10'>
+        <div className=' my-10'>
             <div className='grid sm:grid-cols-2'>
                 <div className='flex items-center justify-center'>
                     <div>

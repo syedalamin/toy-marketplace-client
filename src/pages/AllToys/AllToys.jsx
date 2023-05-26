@@ -12,9 +12,9 @@ const AllToys = () => {
     }, [])
 
     return (
-        <div>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-10/12 mx-auto">
+        <div className=" w-10/12 mx-auto py-10">
+            <div className="overflow-x-auto w-full ">
+                <table className="table w-full">
                     {/* head */}
                     <thead>
                         <th>Name</th>

@@ -15,7 +15,7 @@ const AllToysSingle = ({ toy }) => {
 
                 <th>
                     <Link to={`/allToys/${_id}`}>
-                        <button className="btn bg-teal-600  hover:bg-teal-800 border-0 btn-xs">details</button>
+                        <button className="btn bg-teal-600  hover:bg-teal-800 border-0 btn-xs">Details</button>
                     </Link>
                 </th>
             </tr>

@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {hover && <h2 className="mr-3 text-teal-600 font-bold">{user.displayName}</h2>}
                     {
-                        user ? <button onClick={handleLogoOut} className="btn btn-sm bg-teal-600 border-0">Log Out</button> :
+                        user?.email ? <button onClick={handleLogoOut} className="btn btn-sm bg-teal-600 border-0">Log Out</button> :
                             <Link to='/login' className="btn btn-sm bg-teal-600 border-0"><button>Login</button></Link>
                     }
                     {

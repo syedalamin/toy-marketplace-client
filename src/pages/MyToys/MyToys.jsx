@@ -1,0 +1,80 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import MyToy from "./MyToy";
+
+const MyToys = () => {
+    const { user, } = useContext(AuthContext);
+    const [myToys, setMyToys] = useState([]);
+    const url = `http://localhost:5000/toys?email=${user?.email}`;
+
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setMyToys(data))
+    }, [])
+
+    return (
+        <div className="w-10/12 mx-auto py-10">
+            <div className="overflow-x-auto w-full ">
+                <table className="table w-full">
+                    {/* head */}
+                    <h2>My toys : {myToys.length}</h2>
+                    <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </th>
+                            <th>Name</th>
+                            <th>Job</th>
+                            <th>Favorite Color</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* row 1 */}
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </th>
+                            <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="font-bold">Hart Hagerty</div>
+                                        <div className="text-sm opacity-50">United States</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                Zemlak, Daniel and Leannon
+                                <br />
+                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                            </td>
+                            <td>Purple</td>
+                            <th>
+                                <button className="btn btn-ghost btn-xs">details</button>
+                            </th>
+                        </tr>
+                        {
+                            myToys.map(myToy => <MyToy
+                                key={myToy._id}
+                                myToy={myToy}
+                            ></MyToy>)
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default MyToys;

@@ -6,18 +6,20 @@ const AllToysDetails = () => {
     return (
         <div className="w-10/12 mx-auto py-20">
             <div className="card grid sm:grid-cols-3 bg-base-100 shadow-xl border-4">
-                <figure><img className="w-3/12 py-5" src={photo} /></figure>
+                <div>
+                    <figure ><img style={{ width: '10rem' }} className=" py-5 w-full h-fit" src={photo} /></figure>
+                </div>
                 <div className="card-body col-span-2">
-                    <div>
-                        <h2 className="card-title">Toys Name: <span className="text-teal-600">{name}</span></h2>
-                        <h3>Seller Name: {seller}</h3>
-                        <h3>Seller E-mail: {email}</h3>
-                        <p>{description}</p>
+                    <div className="">
+                        <h2 className="card-title font-extrabold">Toys Name: <span className="text-teal-600">{name}</span></h2>
+                        <h3 className="font-bold text-xl">Seller Name: <span className="text-teal-600"> {seller}</span></h3>
+                        <h3 className="text-lg font-semibold">Seller E-mail: {email}</h3>
+                        <p className="font-semibold">{description}</p>
                     </div>
-                    <div>
-                        <p>Quantity: {quantity}</p>
-                        <p>Price: {price}</p>
-                        <p>{rating}</p>
+                    <div className="py-5 font-semibold">
+                        <p>Quantity: <span className="text-teal-600">{quantity}</span></p>
+                        <p>Price: <span className="text-teal-600">{price}</span> </p>
+                        <p> <span className="text-teal-600">{rating}</span> </p>
                     </div>
                 </div>
             </div>

@@ -16,24 +16,34 @@ const MyToys = () => {
 
     const handleDeleted = id => {
 
-        fetch(`http://localhost:5000/toys/${id}`, {
-            method: 'DELETE'
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toys/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            const remaining = myToys.filter(myToy => myToy._id !== id);
+                            setMyToys(remaining)
+                        }
+                    })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
 
+                )
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    const remaining = myToys.filter(myToy => myToy._id !== id);
-                    setMyToys(remaining)
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            })
-
-
     }
 
     return (
@@ -47,10 +57,11 @@ const MyToys = () => {
                         <th>Category</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>View Details</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </thead>
                     <tbody>
-                       
+
                         {
                             myToys.map(myToy => <MyToy
                                 key={myToy._id}

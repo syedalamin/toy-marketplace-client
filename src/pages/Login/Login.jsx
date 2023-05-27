@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import useTitle from "../../hooks/useTitle";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
     const {logIn} = useContext(AuthContext);
@@ -48,6 +49,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="my-4 text-center">New to Action Figure <Link to='/register' className="font-bold text-yellow-600">Register</Link></p>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>

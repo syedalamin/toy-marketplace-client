@@ -1,4 +1,6 @@
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
 
 const SingleTabs = ({ tabs }) => {
     console.log(tabs)
@@ -11,8 +13,15 @@ const SingleTabs = ({ tabs }) => {
                     <h2 className="card-title font-bold"><span className="text-black">Name:</span> {name}</h2>
                     <p className="text-xl font-semibold"><span className="text-black">Price:</span> {price}</p>
                     <div className="flex justify-between items-center pt-3">
-                        <div>
-                            {rating}
+                        <div className="text-lg text-yellow-500">
+                            <Rating
+                                placeholderRating={rating}
+                                readonly  
+                                
+                                emptySymbol={<BsStarHalf></BsStarHalf>}
+                                placeholderSymbol={<BsStarFill></BsStarFill>}
+                                fullSymbol={<BsStarFill></BsStarFill>}
+                            ></Rating>
                         </div>
                         <div className="card-actions">
                             <Link to={`/allToys/${_id}`}>

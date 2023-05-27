@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
-
+import Rating from "react-rating";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
 const AllToysDetails = () => {
     const toyDetails = useLoaderData();
     useTitle('All Toys Details')
@@ -22,7 +23,16 @@ const AllToysDetails = () => {
                     <div className="py-5 font-semibold">
                         <p>Quantity: <span className="text-teal-600">{quantity}</span></p>
                         <p>Price: <span className="text-teal-600">{price}</span> </p>
-                        <p> <span className="text-teal-600">{rating}</span> </p>
+                        <div className="text-lg text-yellow-500">
+                            <Rating
+                                placeholderRating={rating}
+                                readonly  
+                                
+                                emptySymbol={<BsStarHalf></BsStarHalf>}
+                                placeholderSymbol={<BsStarFill></BsStarFill>}
+                                fullSymbol={<BsStarFill></BsStarFill>}
+                            ></Rating>
+                        </div>
                     </div>
                 </div>
             </div>

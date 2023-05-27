@@ -3,7 +3,7 @@ import NewCollection2 from '../../../assets/image/NewCollection2.jpg';
 const NewCollection = () => {
     return (
         <div className='my-10'>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2  gap-6">
                 <div className='relative'>
                     <img src={NewCollection2} className=' rounded-md border-2' alt="" />
                     <div className='absolute bottom-0 right-0'>

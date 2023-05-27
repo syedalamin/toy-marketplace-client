@@ -20,7 +20,7 @@ const HomeTabs = () => {
     }
     return (
         <div className='py-10'>
-            <Tabs className="text-center text-teal-600 font-semibold">
+            <Tabs className="text-center text-teal-600 font-bold">
                 <TabList>
                     <Tab onClick={() => handleTab('marvel')}>Marvel</Tab>
                     <Tab onClick={() => handleTab('avengers')}>Avengers</Tab>

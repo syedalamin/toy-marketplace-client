@@ -22,7 +22,7 @@ const UpdateToys = () => {
             description,
         }
 
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://action-figure-toys-server-beryl.vercel.app/toys/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

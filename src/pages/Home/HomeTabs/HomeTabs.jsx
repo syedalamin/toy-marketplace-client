@@ -7,7 +7,7 @@ const HomeTabs = () => {
     const [activeTabs, setActiveTab] = useState("marvel")
 
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch('https://action-figure-toys-server-beryl.vercel.app/toys')
             .then(res => res.json())
             .then(result => {
                 setTab(result)

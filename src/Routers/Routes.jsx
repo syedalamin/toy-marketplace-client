@@ -13,53 +13,53 @@ import UpdateToys from "../UpdateToys/UpdateToys";
 import Blog from "../pages/Blogs/Blog";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main> ,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-          path: '/login',
-          element: <Login></Login>
-        },
-        {
-          path: '/register',
-          element: <Register></Register>
-        },
-        {
-          path: '/allToys',
-          element: <AllToys></AllToys>
-        },
-        {
-          path: '/addAToy',
-          element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
-        },
-        {
-          path: '/allToys/:id',
-          element: <PrivateRoute><AllToysDetails></AllToysDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
-        },
-        {
-          path: '/myToys',
-          element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
-        },
-        {
-          path: '/updateToys/:id',
-          element: <UpdateToys></UpdateToys>,
-          loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
-        },
-        {
-          path: '/blog',
-          element: <Blog></Blog>
-        },
-        
-        
-      ]
-    },
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/allToys',
+        element: <AllToys></AllToys>
+      },
+      {
+        path: '/addAToy',
+        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+      },
+      {
+        path: '/allToys/:id',
+        element: <PrivateRoute><AllToysDetails></AllToysDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://action-figure-toys-server-beryl.vercel.app/toys/${params.id}`)
+      },
+      {
+        path: '/myToys',
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+      },
+      {
+        path: '/updateToys/:id',
+        element: <UpdateToys></UpdateToys>,
+        loader: ({ params }) => fetch(`https://action-figure-toys-server-beryl.vercel.app/toys/${params.id}`)
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+
+
+    ]
+  },
 ]);
 
 

@@ -1,8 +1,6 @@
 
 const Gallery = () => {
 
-    
-
     return (
         <div>
             <div className="text-3xl text-center font-bold text-teal-600">Gallery</div>
